@@ -4,7 +4,7 @@
 ;;
 ;; Author: Lord Valen
 ;; Maintainer: Lord Valen
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; Keywords: convenience
 ;; Homepage: https://github.com/Lord-Valen/git-ontology-snippets
 ;; Package-Requires: ((yasnippet "0.14.0"))
@@ -31,19 +31,15 @@
 ;;; Code:
 (require 'yasnippet)
 
-(defconst git-ontology-snippets-dir (expand-file-name
-                                     "snippets"
-                                              (file-name-directory
-                                               (cond
-                                                (load-in-progress load-file-name)
-                                                ((and
-                                                  (boundp
-                                                   'byte-compile-current-file)
-                                                  byte-compile-current-file)
-                                                 byte-compile-current-file)
-                                                (:else
-                                                 (buffer-file-name))))))
-
+(defconst git-ontology-snippets-dir
+  (expand-file-name
+   "snippets"
+   (file-name-directory
+    (cond (load-in-progress load-file-name)
+          ((bound-and-true-p byte-compile-current-file)
+           byte-compile-current-file)
+          (buffer-file-name))))
+  "`git-ontology-snippets' snippets top-dir.")
 
 (defun git-ontology-snippets-load ()
   "Load the `git-ontology-snippets' snippets directory."
@@ -51,7 +47,7 @@
   (yas-load-directory git-ontology-snippets-dir))
 
 ;;; autoload
-(eval-after-load 'yasnippet '(git-ontology-snippets-load))
+(eval-after-load 'yasnippet #'(git-ontology-snippets-load))
 
 (provide 'git-ontology-snippets)
 ;;; git-ontology-snippets.el ends here
