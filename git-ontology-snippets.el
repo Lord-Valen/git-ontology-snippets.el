@@ -4,7 +4,7 @@
 ;;
 ;; Author: Lord Valen
 ;; Maintainer: Lord Valen
-;; Version: 1.0.2
+;; Version: 1.0.3
 ;; Keywords: convenience
 ;; Homepage: https://github.com/Lord-Valen/git-ontology-snippets
 ;; Package-Requires: ((yasnippet "0.14.0"))
@@ -29,6 +29,8 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Code:
+(require 'yasnippet)
+
 (defconst git-ontology-snippets-dir
   (expand-file-name
    "snippets"
@@ -46,7 +48,7 @@
  (yas-load-directory git-ontology-snippets-dir t))
 
 ;;;###autoload
-(eval-after-load 'yasnippet #'(git-ontology-snippets-load))
+(eval-after-load 'yasnippet #'(git-ontology-snippets-initialize))
 
 (provide 'git-ontology-snippets)
 ;;; git-ontology-snippets.el ends here
