@@ -4,7 +4,7 @@
 ;;
 ;; Author: Lord Valen
 ;; Maintainer: Lord Valen
-;; Version: 2.0.0
+;; Version: 2.0.1
 ;; Keywords: convenience
 ;; Homepage: https://github.com/Lord-Valen/git-ontology-snippets
 ;; Package-Requires: ((yasnippet "0.14.0"))
@@ -29,8 +29,6 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Code:
-
-(require 'yasnippet)
 
 (defconst git-ontology-snippets-dir
   (file-name-directory (or load-file-name byte-compile-current-file buffer-file-name))
