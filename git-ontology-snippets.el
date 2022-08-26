@@ -4,7 +4,7 @@
 ;;
 ;; Author: Lord Valen
 ;; Maintainer: Lord Valen
-;; Version: 2.0.1
+;; Version: 2.0.2
 ;; Keywords: convenience
 ;; Homepage: https://github.com/Lord-Valen/git-ontology-snippets
 ;; Package-Requires: ((yasnippet "0.14.0"))
@@ -37,12 +37,11 @@
 ;;;###autoload
 (defun git-ontology-snippets-initialize ()
   "Add the `git-ontology-snippets-dir' to `yas-snippet-dirs'."
-  (let ((snippets (expand-file-name "snippets" 'git-ontology-snippets-dir)))
-    (add-to-list 'yas-snippet-dirs snippets t)
-    (yas-load-directory snippets t)))
+  (add-to-list 'yas-snippet-dirs 'git-ontology-snippets-dir t)
+  (yas-load-directory git-ontology-snippets-dir t))
 
 ;;;###autoload
-(eval-after-load 'yasnippet #'(git-ontology-snippets-initialize))
+(eval-after-load 'yasnippet #'git-ontology-snippets-initialize)
 
 (provide 'git-ontology-snippets)
 ;;; git-ontology-snippets.el ends here
